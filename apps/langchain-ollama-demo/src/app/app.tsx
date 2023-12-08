@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Ollama } from 'langchain/llms/ollama';
 import { PromptTemplate } from 'langchain/prompts';
-import './app.css';
+import '@ai-hackaton-dec-2023/libs/shared-styles';
 
 const prompt = PromptTemplate.fromTemplate(
   'Generate a pure typescript function for that follows the spec: {spec} With the input: {input} it should return: {output}. Always make it typesafe and pure.'
@@ -28,15 +28,10 @@ export function App() {
     }
 
     if (!llm.current) {
-      try {
         llm.current = new Ollama({
           model: 'codellama',
           baseUrl: 'http://localhost:11434',
         });
-      } catch (e) {
-        setError(JSON.stringify(e));
-        return;
-      }
     }
 
     const formattedPrompt = await prompt.format({
@@ -57,7 +52,10 @@ export function App() {
 
   return (
     <div className="container">
-      {error && <div className="alert">{error}</div>}
+      <header>
+        <h2>Ollama</h2>
+        {error && <div className="alert">{error}</div>}
+      </header>
       <code>
         <pre>{loading ? 'waiting...' : code}</pre>
       </code>

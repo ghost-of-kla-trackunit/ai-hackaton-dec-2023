@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { OpenAI } from 'langchain/llms/openai';
 import { PromptTemplate } from 'langchain/prompts';
-import './app.css';
+import '@ai-hackaton-dec-2023/libs/shared-styles';
 
 const prompt = PromptTemplate.fromTemplate(
   'Generate a pure typescript function for that follows the spec: {spec} With the input: {input} it should return: {output}. Always make it typesafe and pure.'
@@ -18,6 +18,7 @@ export function App() {
   const [output, setOutput] = useState<string>('[1, 2, 0]: number[]');
   const [code, setCode] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
   const llm = useRef<OpenAI | null>(null);
 
   const handleSubmit = async () => {
@@ -39,14 +40,22 @@ export function App() {
       output,
     });
 
-    const llmResult = await llm.current.predict(formattedPrompt);
-
-    llmResult && setCode(llmResult);
-    setLoading(false);
+    try {
+      const llmResult = await llm.current.predict(formattedPrompt);
+      llmResult && setCode(llmResult);
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      setError('Something went wrong. Check the console for more info.');
+    }
   };
 
   return (
     <div className="container">
+      <header>
+        <h2>OpenAi</h2>
+        {error && <div className="alert">{error}</div>}
+      </header>
       <code>
         <pre>{loading ? 'waiting...' : code}</pre>
       </code>
