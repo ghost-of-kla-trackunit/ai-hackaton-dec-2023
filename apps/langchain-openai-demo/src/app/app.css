@@ -1,0 +1,61 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #fefe;
+  background: #000;
+}
+.container {
+  box-sizing: border-box;
+  height: 100dvh;
+  display: grid;
+  gap: 2rem;
+
+  grid-template-rows: 1fr auto;
+  padding: 2rem;
+}
+
+code, pre {
+  font-family: 'Roboto Mono', monospace;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: pre-wrap;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+input,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fefe;
+}
+
+button {
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  color: #fefe;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 10ch;
+}

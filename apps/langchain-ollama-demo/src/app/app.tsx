@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { OpenAI } from 'langchain/llms/openai';
+import { Ollama } from 'langchain/llms/ollama';
 import { PromptTemplate } from 'langchain/prompts';
 import './app.css';
 
@@ -8,7 +8,6 @@ const prompt = PromptTemplate.fromTemplate(
 );
 
 export function App() {
-  const [token, setToken] = useState<string | null>(null);
   const [spec, setSpec] = useState<string>(
     'a noneNullable typesafe function to use with Use with filter() to remove null and undefined from an array but keep the type'
   );
@@ -17,20 +16,27 @@ export function App() {
   );
   const [output, setOutput] = useState<string>('[1, 2, 0]: number[]');
   const [code, setCode] = useState<string | null>(null);
+  const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-  const llm = useRef<OpenAI | null>(null);
+  const llm = useRef<Ollama | null>(null);
 
   const handleSubmit = async () => {
     setLoading(true);
-    if (!token || !spec || !input || !output) {
+    if (!spec || !input || !output) {
       setCode('Please fill out all fields');
       return;
     }
 
     if (!llm.current) {
-      llm.current = new OpenAI({
-        openAIApiKey: token,
-      });
+      try {
+        llm.current = new Ollama({
+          model: 'codellama',
+          baseUrl: 'http://localhost:11434',
+        });
+      } catch (e) {
+        setError(JSON.stringify(e));
+        return;
+      }
     }
 
     const formattedPrompt = await prompt.format({
@@ -39,27 +45,23 @@ export function App() {
       output,
     });
 
-    const llmResult = await llm.current.predict(formattedPrompt);
-
-    llmResult && setCode(llmResult);
-    setLoading(false);
+    try {
+      const llmResult = await llm.current.predict(formattedPrompt);
+      llmResult && setCode(llmResult);
+      setLoading(false);
+    } catch (e) {
+      setLoading(false);
+      setError('Something went wrong. Check the console for more info.');
+    }
   };
 
   return (
     <div className="container">
+      {error && <div className="alert">{error}</div>}
       <code>
         <pre>{loading ? 'waiting...' : code}</pre>
       </code>
       <form>
-        <div className="field">
-          <label>OpenAI Token</label>
-          <input
-            type="password"
-            name="openai_token"
-            id="openai_token"
-            onChange={(e) => setToken(e.target.value)}
-          />
-        </div>
         <div className="field">
           <label>Function Spec</label>
           <textarea
