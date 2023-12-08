@@ -56,9 +56,7 @@ export function App() {
         <h2>OpenAi</h2>
         {error && <div className="alert">{error}</div>}
       </header>
-      <code>
-        <pre>{loading ? 'waiting...' : code}</pre>
-      </code>
+      <code>{loading ? 'waiting...' : code}</code>
       <form>
         <div className="field">
           <label>OpenAI Token</label>

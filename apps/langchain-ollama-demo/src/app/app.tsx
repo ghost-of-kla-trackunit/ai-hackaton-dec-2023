@@ -57,7 +57,7 @@ export function App() {
         {error && <div className="alert">{error}</div>}
       </header>
       <code>
-        <pre>{loading ? 'waiting...' : code}</pre>
+        {loading ? 'waiting...' : code}
       </code>
       <form>
         <div className="field">
