@@ -6,8 +6,11 @@ The aim is to give anyone a running start playing around with AI features!
 ## Apps:
 
 - [langchain-ollama-demo](./apps/langchain-ollama-demo/Readme.md)
+  - Using langchain and ollama to work with a set fully local llm models.
 - [langchain-openai-demo](./apps/langchain-openai-demo/Readme.md)
+  - Using langchain with openai to get access to the GPT-4 models (replica of the Ollama example for model comparison).
 - [node-openai-assistant-demo](./apps/node-openai-assistant-demo/Readme.md)
+  - Using the openai node sdk directly to work with the Assistants concept.
 
 ## DISCLAIMER
 
