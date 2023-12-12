@@ -68,3 +68,46 @@ textarea {
   resize: vertical;
   min-height: 10ch;
 }
+
+.status-container {
+  display: grid;
+  gap: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.status {
+  font-weight: bold;
+}
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+  max-width: 1000px;
+}
+.message {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  color: #fefe;
+  white-space: pre-wrap;
+  width: fit-content;
+}
+
+.message.user {
+  align-self: end;
+  background-color: #052e16;
+}
+
+.message.assistant {
+  justify-self: start;
+  background-color: #083344;
+}
