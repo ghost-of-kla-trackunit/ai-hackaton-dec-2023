@@ -6,7 +6,7 @@ To create an assistant login to openai ai go to: https://platform.openai.com/ass
 ## DISCLAIMER
 
 **This runs 100% client side which is not recommended for production as the Token is exposed in the browser**  
-This was chosen to simplicity of this demo!
+This was chosen for the simplicity of this demo!
 
 **This is using the OpenAI GPT model, remember to follow the AI Guidelines:**  
 https://trackunit.atlassian.net/wiki/spaces/COM/pages/3577872389/Company+policies?preview=/3577872389/4298211442/AI-tool-policy.pdf
