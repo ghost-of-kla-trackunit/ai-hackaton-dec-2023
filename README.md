@@ -11,6 +11,8 @@ The aim is to give anyone a running start playing around with AI features!
   - Using langchain with openai to get access to the GPT-4 models (replica of the Ollama example for model comparison).
 - [node-openai-assistant-demo](./apps/node-openai-assistant-demo/Readme.md)
   - Using the openai node sdk directly to work with the Assistants concept.
+- [node-openai-assistant-actions-demo](apps/node-openai-assistant-actions-demo/Readme.md)
+  - Using the openai node sdk directly to work with the Assistants concept and giving the assistant the functions to change the colors of the UI.
 
 ## DISCLAIMER
 
@@ -22,6 +24,6 @@ https://trackunit.atlassian.net/wiki/spaces/COM/pages/3577872389/Company+policie
 
 ## Screenshots:
 
-| [langchain-ollama-demo](./apps/langchain-ollama-demo/Readme.md)                 |         [langchain-openai-demo](./apps/langchain-openai-demo/Readme.md)         |            [node-openai-assistant-demo](./apps/node-openai-assistant-demo/Readme.md) |
-| ------------------------------------------------------------------------------- | :-----------------------------------------------------------------------------: | -----------------------------------------------------------------------------------: |
-| ![Screenshot of the app](./apps/langchain-ollama-demo/ollama-langchain-app.png) | ![Screenshot of the app](./apps/langchain-openai-demo/openai-langchain-app.png) | ![Screenshot of the app](./apps/node-openai-assistant-demo/openai-assistant-app.png) |
+| [langchain-ollama-demo](./apps/langchain-ollama-demo/Readme.md)                 |         [langchain-openai-demo](./apps/langchain-openai-demo/Readme.md)         |      [node-openai-assistant-demo](./apps/node-openai-assistant-demo/Readme.md)       |        [node-openai-assistant-actions-demo](apps/node-openai-assistant-actions-demo/Readme.md) |
+| ------------------------------------------------------------------------------- | :-----------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: | ---------------------------------------------------------------------------------------------: |
+| ![Screenshot of the app](./apps/langchain-ollama-demo/ollama-langchain-app.png) | ![Screenshot of the app](./apps/langchain-openai-demo/openai-langchain-app.png) | ![Screenshot of the app](./apps/node-openai-assistant-demo/openai-assistant-app.png) | ![Screenshot of the app](apps/node-openai-assistant-actions-demo/openai-assistant-actions.png) |

@@ -1,3 +1,9 @@
+:root {
+  --base-background-color-rgb: 0, 0, 0;
+  --background-color: rgb(var(--base-background-color-rgb));
+  --base-foreground-color-rgb: 255, 255, 255;
+  --foreground-color: rgb(var(--base-foreground-color-rgb));
+}
 html,
 body {
   height: 100%;
@@ -5,8 +11,8 @@ body {
   padding: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  color: #fefe;
-  background: #000;
+  color: var(--foreground-color);
+  background: var(--background-color);
 }
 .container {
   box-sizing: border-box;
@@ -21,16 +27,16 @@ body {
   padding: 1rem;
   border-radius: 0.25rem;
   background-color: rgba(255, 0, 0, 0.1);
-  color: #fefe;
+  color: var(--foreground-color);
 }
 
 code {
   font-family: 'Roboto Mono', monospace;
   overflow-y: auto;
   white-space: pre-wrap;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(var(--base-foreground-color-rgb), 0.3);
   border-radius: 0.25rem;
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: rgba(var(--base-foreground-color-rgb), 0.02);
   padding: 1rem;
 }
 
@@ -47,21 +53,21 @@ form {
 input,
 textarea {
   padding: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(var(--base-foreground-color-rgb), 0.3);
   border-radius: 0.25rem;
   font-size: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fefe;
+  background-color: rgba(var(--base-foreground-color-rgb), 0.1);
+  color: var(--foreground-color);
 }
 
 button {
   padding: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(var(--base-foreground-color-rgb), 0.3);
   border-radius: 0.25rem;
   font-size: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(var(--base-foreground-color-rgb), 0.1);
   cursor: pointer;
-  color: #fefe;
+  color: var(--foreground-color);
 }
 
 textarea {
@@ -76,7 +82,7 @@ textarea {
   top: 1rem;
   right: 3rem;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(var(--base-foreground-color-rgb), 0.1);
   border-radius: 1rem;
   max-height: 500px;
   overflow-y: auto;
@@ -97,17 +103,17 @@ textarea {
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
-  color: #fefe;
+  color: var(--foreground-color);
   white-space: pre-wrap;
   width: fit-content;
 }
 
 .message.user {
   align-self: end;
-  background-color: #052e16;
+  background-color: rgba(9, 173, 78, 0.3);
 }
 
 .message.assistant {
   justify-self: start;
-  background-color: #083344;
+  background-color: rgba(12, 127, 172, 0.3);
 }
