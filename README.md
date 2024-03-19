@@ -7,7 +7,8 @@ The aim is to give anyone a running start playing around with AI features!
 1. Install node: https://nodejs.org/en
 2. Clone this repo.
 3. Open the folder and run `npm install` to download the npm packages.
-4. If you do not have nx installed globally, use `npm nx <app>:serve` to serve the apps.
+4. Initialize nx by running `npx nx init`
+5. If you do not have nx installed globally, use `npx nx <app>:serve` to serve the apps.
 
 ## Apps:
 
